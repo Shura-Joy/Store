@@ -6,10 +6,11 @@ from . import models
 
 
 def index(request):
-    return render(request, "products/index.html")
+    context = {'title': 'Store'}
+    return render(request, "products/index.html", context)
 
 
 def products(request):
-    context = {'products': models.Product.objects.all,
+    context = {'title': 'Store - Каталог', 'products': models.Product.objects.all,
                'categories': models.ProductCategory.objects.order_by('name')}
     return render(request, "products/products.html", context)

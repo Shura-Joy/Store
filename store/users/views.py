@@ -18,7 +18,7 @@ def login(request):
                 return HttpResponseRedirect(reverse('index'))
     else:
         form = UserLoginForm()
-    context = {'form': form}
+    context = {'title': 'Store - Авторизация', 'form': form}
     return render(request, "users/login.html", context)
 
 
@@ -30,5 +30,5 @@ def register(request):
             return HttpResponseRedirect(reverse('users:login'))
     else:
         form = UserRegistrationForm()
-    context = {'form': form}
+    context = {'title': 'Store - Регистрация', 'form': form}
     return render(request, "users/register.html", context)
