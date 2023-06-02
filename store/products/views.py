@@ -21,10 +21,10 @@ def basket_add(request, product_id):
     product = Product.objects.get(pk=product_id)
     baskets = Basket.objects.filter(user=request.user, product=product).first()
     if baskets:
-        baskets.quanity += 1
+        baskets.quantity += 1
         baskets.save()
     else:
-        Basket.objects.create(user=request.user, product=product, quanity=1)
+        Basket.objects.create(user=request.user, product=product, quantity=1)
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
